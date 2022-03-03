@@ -1,9 +1,8 @@
 <template>
-  <Tutorial/>
-</template>
+  <div>
+    <h1>Home</h1>
+    <hr>
 
-<script>
-export default {
-  name: 'IndexPage'
-}
-</script>
+    <h3>Welcome to Our Recepies</h3>
+  </div>
+</template>
