@@ -59,6 +59,26 @@ module.exports.showUserRecepies = function (req, res, next) {
   );
 };
 
+// Get all recepies based on search
+module.exports.showSearchRecepies = function (req, res, next) {
+  Recepie.find(
+    { title: { $regex: req.params.id, $options: "i" } },
+    function (err, recepies) {
+      if (err) {
+        return res.status(500).json({
+          message: "Error getting record.",
+        });
+      }
+      if (!recepies) {
+        return res.status(404).json({
+          message: "No such record",
+        });
+      }
+      return res.json(recepies);
+    }
+  );
+};
+
 // Create
 module.exports.create = [
   // validations rules

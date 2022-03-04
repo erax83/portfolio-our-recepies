@@ -15,10 +15,20 @@
     <hr />
     <div>
       <div>
-        <nuxt-link :to="'/recepies/' + recepie._id + '/update'"
+        <nuxt-link
+          v-if="$auth.loggedIn && $auth.user._id == recepie.authorId"
+          :to="'/recepies/' + recepie._id + '/update'"
           >Update</nuxt-link
         >
-        <button @click="deleteRecord()">Delete</button>
+        <button
+          v-if="$auth.loggedIn && $auth.user._id == recepie.authorId"
+          @click="deleteRecord()"
+        >
+          Delete
+        </button>
+        <nuxt-link v-if="$auth.loggedIn" to="/user/my-account"
+          >Back to My Articles</nuxt-link
+        >
       </div>
       <nuxt-link to="/recepies">Back to Recepies</nuxt-link>
     </div>

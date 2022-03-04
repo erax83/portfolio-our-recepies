@@ -15,6 +15,9 @@ router.get("/recepies/:id", recepiesController.show);
 // Get All from one user
 router.get("/userRecepies/:id", recepiesController.showUserRecepies);
 
+// Get all by search
+router.get("/searchRecepies/:id", recepiesController.showSearchRecepies);
+
 // Create
 router.post("/recepies", config.isAuthenticated, recepiesController.create);
 

@@ -11,6 +11,9 @@
           <li>
             <nuxt-link to="/recepies">Recepies</nuxt-link>
           </li>
+          <li>
+            <nuxt-link to="/recepies/search">Search</nuxt-link>
+          </li>
         </ul>
 
         <ul v-if="!$auth.loggedIn">
