@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav>
-      <nuxt-link to="/">Express CRUD</nuxt-link>
+      <nuxt-link to="/">Our Recepies</nuxt-link>
 
       <div id="navbarsExampleDefault">
         <ul>
@@ -9,7 +9,7 @@
             <nuxt-link to="/">Home</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/articles">Articles</nuxt-link>
+            <nuxt-link to="/recepies">Recepies</nuxt-link>
           </li>
         </ul>
 

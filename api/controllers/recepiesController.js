@@ -18,9 +18,7 @@ module.exports.show = function (req, res) {
   var id = req.params.id;
   Recepie.findOne({ _id: id }, function (err, recepie) {
     if (err) {
-      return res.status(500).json({
-        message: "Error getting record.",
-      });
+      return res.status(500).json({});
     }
     if (!recepie) {
       return res.status(404).json({
@@ -43,14 +41,15 @@ module.exports.create = [
     });
   }),
   validator
-    .body("ingrediences", "Please enter Ingrediences Content")
+    .body("ingredients", "Please enter Ingredients Content")
     .isLength({ min: 1 }),
   validator
-    .body("Instructions", "Please enter Instructions Content")
+    .body("instructions", "Please enter Instructions Content")
     .isLength({ min: 1 }),
 
   function (req, res) {
     // throw validation errors
+    console.log("inside controller");
     const errors = validator.validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.mapped() });
@@ -59,7 +58,7 @@ module.exports.create = [
     // initialize record
     var recepie = new Recepie({
       title: req.body.title,
-      ingrediences: req.body.ingrediences,
+      ingredients: req.body.ingredients,
       instructions: req.body.instructions,
     });
 
@@ -93,7 +92,7 @@ module.exports.update = [
     );
   }),
   validator
-    .body("ingrediences", "Please enter Ingrediences")
+    .body("ingredients", "Please enter Ingredients")
     .isLength({ min: 1 }),
   validator
     .body("instructions", "Please enter Instructions")
@@ -122,9 +121,9 @@ module.exports.update = [
 
       // initialize record
       recepie.title = req.body.title ? req.body.title : recepie.title;
-      recepie.ingrediences = req.body.ingrediences
-        ? req.body.ingrediences
-        : recepie.ingrediences;
+      recepie.ingredients = req.body.ingredients
+        ? req.body.ingredients
+        : recepie.ingredients;
       recepie.instructions = req.body.instructions
         ? req.body.instructions
         : recepie.instructions;
