@@ -12,6 +12,9 @@ router.get("/recepies", recepiesController.list);
 // Get One
 router.get("/recepies/:id", recepiesController.show);
 
+// Get All from one user
+router.get("/userRecepies/:id", recepiesController.showUserRecepies);
+
 // Create
 router.post("/recepies", config.isAuthenticated, recepiesController.create);
 

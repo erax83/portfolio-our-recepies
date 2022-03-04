@@ -72,6 +72,7 @@ export default {
           title: this.title,
           ingredients: this.ingredients,
           instructions: this.instructions,
+          authorId: this.$auth.user._id,
         })
         .then((response) => {
           console.log(response);

@@ -29,6 +29,34 @@ module.exports.show = function (req, res) {
   });
 };
 
+// Get all from one user
+module.exports.showUserRecepies = function (req, res, next) {
+  console.log("inside showUserRecepies");
+  // if(req.params.favourites) {
+  //   for (const favourite of req.params.favourites) {
+  //     console.log(favourite);
+  //   }
+  // }
+  Recepie.find(
+    {
+      authorId: req.params.id,
+    },
+    function (err, recepies) {
+      if (err) {
+        return res.status(500).json({
+          message: "Error getting record.",
+        });
+      }
+      if (!recepies) {
+        return res.status(404).json({
+          message: "No such record",
+        });
+      }
+      return res.json(recepies);
+    }
+  );
+};
+
 // Create
 module.exports.create = [
   // validations rules
@@ -60,6 +88,7 @@ module.exports.create = [
       title: req.body.title,
       ingredients: req.body.ingredients,
       instructions: req.body.instructions,
+      authorId: req.body.authorId,
     });
 
     // save record
