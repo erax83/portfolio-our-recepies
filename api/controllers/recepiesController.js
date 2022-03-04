@@ -31,7 +31,7 @@ module.exports.show = function (req, res) {
   });
 };
 
-// Get all from one user
+// Get all from logged in user
 module.exports.showUserRecepies = function (req, res, next) {
   console.log("inside showUserRecepies");
   // if(req.params.favourites) {
@@ -41,7 +41,35 @@ module.exports.showUserRecepies = function (req, res, next) {
   // }
   Recepie.find(
     {
-      authorId: req.params.id,
+      author_id: req.params.id,
+    },
+    function (err, recepies) {
+      if (err) {
+        return res.status(500).json({
+          message: "Error getting record.",
+        });
+      }
+      if (!recepies) {
+        return res.status(404).json({
+          message: "No such record",
+        });
+      }
+      return res.json(recepies);
+    }
+  );
+};
+
+// Get all from another user
+module.exports.showAnotherUserRecepies = function (req, res, next) {
+  console.log("inside showAnotherUserRecepies " + req.params.id);
+  // if(req.params.favourites) {
+  //   for (const favourite of req.params.favourites) {
+  //     console.log(favourite);
+  //   }
+  // }
+  Recepie.find(
+    {
+      author_id: req.params.id,
     },
     function (err, recepies) {
       if (err) {
@@ -110,7 +138,8 @@ module.exports.create = [
       title: req.body.title,
       ingredients: req.body.ingredients,
       instructions: req.body.instructions,
-      authorId: req.body.authorId,
+      author_id: req.body.author_id,
+      full_name: req.body.full_name,
     });
 
     // save record

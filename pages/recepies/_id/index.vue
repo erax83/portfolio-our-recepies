@@ -11,6 +11,12 @@
     <p>{{ recepie.ingredients }}</p>
 
     <p>{{ recepie.instructions }}</p>
+    <p>
+      Author:
+      <nuxt-link :to="'/user/' + recepie.author_id" :key="recepie._id">
+        {{ recepie.full_name }}
+      </nuxt-link>
+    </p>
 
     <hr />
     <div>

@@ -14,7 +14,7 @@
 
     <hr />
     <div>
-      <h1>Articles</h1>
+      <h1>My Recepies</h1>
       <nuxt-link to="/recepies/add">Add New</nuxt-link>
     </div>
     <hr />

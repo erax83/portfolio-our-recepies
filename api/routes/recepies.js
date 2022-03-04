@@ -12,8 +12,11 @@ router.get("/recepies", recepiesController.list);
 // Get One
 router.get("/recepies/:id", recepiesController.show);
 
-// Get All from one user
+// Get All from logged in user
 router.get("/userRecepies/:id", recepiesController.showUserRecepies);
+
+// Get All from another user
+router.get("/anotherUserRecepies/:id", recepiesController.showAnotherUserRecepies);
 
 // Get all by search
 router.get("/searchRecepies/:id", recepiesController.showSearchRecepies);
