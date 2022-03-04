@@ -10,7 +10,9 @@ module.exports.list = function (req, res, next) {
       });
     }
     return res.json(recepies);
-  });
+  })
+    .sort({ _id: -1 })
+    .limit(5);
 };
 
 // Get one
