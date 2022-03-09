@@ -32,8 +32,11 @@
         >
           Delete
         </button>
+        <!-- <button v-if="$auth.loggedIn" @click="addToFavourites()">
+          Add to favourites
+        </button> -->
         <nuxt-link v-if="$auth.loggedIn" to="/user/my-account"
-          >Back to My Articles</nuxt-link
+          >Back to My Recepies</nuxt-link
         >
       </div>
       <nuxt-link to="/recepies">Back to Recepies</nuxt-link>
@@ -70,6 +73,29 @@ export default {
           });
       }
     },
+    // addToFavourites() {
+    //   console.log("author_id: " + this.$auth.user._id);
+    //   this.$axios
+    //     .post("/api/favourites", {
+    //       author_id: this.$auth.user._id,
+    //     })
+    //     .then((response) => {
+    //       console.log(response);
+    //       if (response.data._id) {
+    //         this.$router.push({
+    //           name: "favourites",
+    //           params: { created: "yes" },
+    //         });
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.log("inside error");
+    //       console.log(error);
+    //       if (error.response.data.errors) {
+    //         this.errors = error.response.data.errors;
+    //       }
+    //     });
+    // },
   },
 };
 </script>

@@ -33,12 +33,6 @@ module.exports.show = function (req, res) {
 
 // Get all from logged in user
 module.exports.showUserRecepies = function (req, res, next) {
-  console.log("inside showUserRecepies");
-  // if(req.params.favourites) {
-  //   for (const favourite of req.params.favourites) {
-  //     console.log(favourite);
-  //   }
-  // }
   Recepie.find(
     {
       author_id: req.params.id,
@@ -61,12 +55,6 @@ module.exports.showUserRecepies = function (req, res, next) {
 
 // Get all from another user
 module.exports.showAnotherUserRecepies = function (req, res, next) {
-  console.log("inside showAnotherUserRecepies " + req.params.id);
-  // if(req.params.favourites) {
-  //   for (const favourite of req.params.favourites) {
-  //     console.log(favourite);
-  //   }
-  // }
   Recepie.find(
     {
       author_id: req.params.id,

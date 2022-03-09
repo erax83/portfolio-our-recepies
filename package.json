@@ -9,8 +9,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.0.0",
+    "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "bcryptjs": "^2.4.3",
     "core-js": "^3.19.3",
     "express": "^4.17.3",

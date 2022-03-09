@@ -1,43 +1,116 @@
 <template>
   <div>
     <nav>
-      <nuxt-link to="/">Our Recepies</nuxt-link>
-
       <div id="navbarsExampleDefault">
-        <ul>
+        <ul id="menu-left">
           <li>
-            <nuxt-link to="/">Home</nuxt-link>
+            <nuxt-link id="logo" to="/">Our Recepies</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/recepies">Recepies</nuxt-link>
+            <nuxt-link class="menu-item" to="/recepies">Recepies</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/recepies/search">Search</nuxt-link>
+            <nuxt-link class="menu-item" to="/recepies/search"
+              >Search</nuxt-link
+            >
           </li>
         </ul>
 
-        <ul v-if="!$auth.loggedIn">
+        <ul id="menu-right" v-if="!$auth.loggedIn">
           <li>
-            <nuxt-link to="/user/register">Register</nuxt-link>
+            <nuxt-link class="menu-item" to="/user/register"
+              >Register</nuxt-link
+            >
           </li>
           <li class="nav-item">
-            <nuxt-link to="/user/login">Login</nuxt-link>
+            <nuxt-link class="menu-item" to="/user/login">Login</nuxt-link>
           </li>
         </ul>
 
         <ul v-if="$auth.loggedIn">
           <li>
-            <nuxt-link to="/user/my-account">My Account</nuxt-link>
+            <nuxt-link class="menu-item" to="/user/my-account"
+              >My Account</nuxt-link
+            >
           </li>
           <li class="nav-item">
-            <nuxt-link to="/user/logout">Logout</nuxt-link>
+            <nuxt-link class="menu-item" to="/user/logout">Logout</nuxt-link>
+          </li>
+          <li>
+            <button class="icon" onclick="myFunction()">
+              <font-awesome-icon :icon="['fas', 'bars']" />
+            </button>
           </li>
         </ul>
+        <button class="icon" onclick="myFunction()">
+          <font-awesome-icon :icon="['fas', 'bars']" />
+        </button>
       </div>
     </nav>
 
-    <div>
+    <main>
       <nuxt />
-    </div>
+    </main>
   </div>
 </template>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap");
+
+body {
+  font-family: Helvetica;
+  margin: 0;
+}
+
+#logo {
+  font-family: "Lily Script One";
+  font-size: 25px;
+  /* color: salmon; */
+}
+
+nav {
+  color: white;
+  overflow: hidden;
+  background-color: #404040;
+}
+
+nav a {
+  float: left;
+  /* display: block; */
+  /* text-align: center; */
+  padding: 14px 16px;
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+nav a:hover {
+  color: salmon;
+}
+
+nav a.active {
+  color: orangered;
+}
+
+main {
+    margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-item {
+    display: none;
+  }
+  nav a.icon {
+    float: right;
+    display: block;
+  }
+}
+</style>
