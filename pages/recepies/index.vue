@@ -10,13 +10,11 @@
     <div v-if="$route.params.deleted == 'yes'">Record deleted successfully</div>
 
     <div class="list-group" v-if="recepies.length">
-      <nuxt-link
-        :to="'/recepies/' + recepie._id"
-        v-for="recepie in recepies"
-        :key="recepie._id"
-      >
-        {{ recepie.title }}
-      </nuxt-link>
+      <div v-for="recepie in recepies" :key="recepie._id">
+        <nuxt-link :to="'/recepies/' + recepie._id">
+          {{ recepie.title }}</nuxt-link
+        >
+      </div>
     </div>
 
     <div v-else>No records found.</div>

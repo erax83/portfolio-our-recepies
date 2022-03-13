@@ -7,7 +7,7 @@
       <div>
         <form action="" method="post" @submit.prevent="submitForm()">
           <div class="form-group">
-            <label for="">Title</label>
+            <label for=""><h4>Title</h4></label>
             <input
               type="text"
               class="form-control"
@@ -18,34 +18,55 @@
               {{ errors.title.msg }}
             </div>
           </div>
-
+          <br />
           <div class="form-group">
-            <label for="">Ingredients</label>
-            <input
+            <label for=""> <h4>Ingredients</h4> </label>
+            <p>
+              <i> Use one ingredient and amount for every row, like this: </i>
+            </p>
+            <p>1 egg</p>
+            <p>2 dl sugar</p>
+            <!-- <input
               type="text"
               class="form-control"
               :class="{ 'is-invalid': errors && errors.ingredients }"
               v-model="ingredients"
-            />
+            /> -->
+            <textarea
+              cols="45"
+              rows="10"
+              class="form-control"
+              :class="{ 'is-invalid': errors && errors.ingredients }"
+              v-model="ingredients"
+            ></textarea>
             <div class="invalid-feedback" v-if="errors && errors.ingredients">
               {{ errors.ingredients.msg }}
             </div>
           </div>
-
+          <br>
           <div class="form-group">
-            <label for="">Instructions</label>
+            <label for=""> <h4>Instructions</h4> </label>
+            <p>
+              <i>
+                Use a number before every instruction. And start a new line after
+                every instruction, like this:
+              </i>
+            </p>
+            <p>1. Pour milk and honey in a bowl</p>
+            <p>2. Add spices</p>
             <textarea
-              cols="30"
-              rows="4"
+              cols="45"
+              rows="10"
               class="form-control"
               :class="{ 'is-invalid': errors && errors.instructions }"
               v-model="instructions"
             ></textarea>
+
             <div class="invalid-feedback" v-if="errors && errors.instructions">
               {{ errors.instructions.msg }}
             </div>
           </div>
-
+          <br>
           <input type="submit" value="Submit" />
           <nuxt-link to="/recepies">Cancel</nuxt-link>
         </form>

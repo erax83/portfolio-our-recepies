@@ -1,16 +1,19 @@
 <template>
   <div>
-    <h1>Article Details</h1>
+    <!-- <h1>Recepie</h1>
 
-    <hr />
+    <hr /> -->
 
     <div v-if="$route.params.updated == 'yes'">Record updated successfully</div>
 
     <h2>{{ recepie.title }}</h2>
-
-    <p>{{ recepie.ingredients }}</p>
-
-    <p>{{ recepie.instructions }}</p>
+    <!-- <h3>{{ capitalize_Words(recepie.title) }}</h3> -->
+    <hr />
+    <h3>Ingredients</h3>
+    <p class="ingredients-and-instructions">{{ recepie.ingredients }}</p>
+    <h3>Instructions</h3>
+    <p class="ingredients-and-instructions">{{ recepie.instructions }}</p>
+    <br />
     <p>
       Author:
       <nuxt-link :to="'/user/' + recepie.author_id" :key="recepie._id">
@@ -22,16 +25,17 @@
     <div>
       <div>
         <nuxt-link
-          v-if="$auth.loggedIn && $auth.user._id == recepie.authorId"
+          v-if="$auth.loggedIn && $auth.user._id == recepie.author_id"
           :to="'/recepies/' + recepie._id + '/update'"
           >Update</nuxt-link
         >
         <button
-          v-if="$auth.loggedIn && $auth.user._id == recepie.authorId"
+          v-if="$auth.loggedIn && $auth.user._id == recepie.author_id"
           @click="deleteRecord()"
         >
           Delete
         </button>
+
         <!-- <button v-if="$auth.loggedIn" @click="addToFavourites()">
           Add to favourites
         </button> -->

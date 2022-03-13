@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h1>Recepies</h1>
+      <h1>Search</h1>
     </div>
     <hr />
 
@@ -25,7 +25,7 @@
 
     <hr />
     <div>
-      <h1>Articles</h1>
+      <h1>Found Recepies</h1>
     </div>
     <hr />
 
@@ -37,13 +37,11 @@
     </div>
 
     <div class="list-group" v-if="recepies.length">
-      <nuxt-link
-        :to="'/recepies/' + recepie._id"
-        v-for="recepie in this.recepies"
-        :key="recepie._id"
-      >
-        {{ recepie.title }}
-      </nuxt-link>
+      <div v-for="recepie in this.recepies" :key="recepie._id">
+        <nuxt-link :to="'/recepies/' + recepie._id">
+          {{ recepie.title }}</nuxt-link
+        >
+      </div>
     </div>
 
     <div v-else>No records found.</div>

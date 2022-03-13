@@ -8,25 +8,29 @@
         <form action="" method="post" @submit.prevent="submitForm()">
           <div class="form-group">
             <label for="">Title</label>
+            <br>
             <input
               type="text"
               class="form-control"
               :class="{ 'is-invalid': errors && errors.title }"
               v-model="title"
             />
+
             <div class="invalid-feedback" v-if="errors && errors.title">
               {{ errors.title.msg }}
             </div>
           </div>
-
+          <br />
           <div class="form-group">
             <label for="">Ingredients</label>
-            <input
-              type="text"
+            <br>
+            <textarea
+              cols="45"
+              rows="10"
               class="form-control"
               :class="{ 'is-invalid': errors && errors.ingredients }"
               v-model="ingredients"
-            />
+            ></textarea>
             <div class="invalid-feedback" v-if="errors && errors.ingredients">
               {{ errors.ingredients.msg }}
             </div>
@@ -34,9 +38,10 @@
 
           <div class="form-group">
             <label for="">Instructions</label>
+            <br>
             <textarea
-              cols="30"
-              rows="4"
+              cols="45"
+              rows="10"
               class="form-control"
               :class="{ 'is-invalid': errors && errors.instructions }"
               v-model="instructions"

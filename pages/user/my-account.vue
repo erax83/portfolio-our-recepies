@@ -1,12 +1,10 @@
 <template>
   <div>
-    <h1>My Account</h1>
-
-    <hr />
+    <h1>{{ this.$auth.user.full_name }}</h1>
 
     <div class="card">
       <div class="card-body">
-        <h4>{{ this.$auth.user.full_name }}</h4>
+        <!-- <h4>{{ this.$auth.user.full_name }}</h4> -->
         <div><strong>Email:</strong> {{ this.$auth.user.email }}</div>
         <nuxt-link to="/user/logout">Logout</nuxt-link>
       </div>
@@ -23,13 +21,11 @@
     <div v-if="$route.params.deleted == 'yes'">Record deleted successfully</div>
 
     <div v-if="recepies.length">
-      <nuxt-link
-        :to="'/recepies/' + recepie._id"
-        v-for="recepie in recepies"
-        :key="recepie._id"
-      >
-        {{ recepie.title }}
-      </nuxt-link>
+      <div v-for="recepie in recepies" :key="recepie._id">
+        <nuxt-link :to="'/recepies/' + recepie._id">
+          {{ recepie.title }}</nuxt-link
+        >
+      </div>
     </div>
 
     <div v-else>No records found.</div>

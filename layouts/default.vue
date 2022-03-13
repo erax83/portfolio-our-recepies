@@ -1,6 +1,34 @@
 <template>
   <div>
     <nav>
+      <div class="top-nav" id="menu-links">
+        <nuxt-link id="logo" to="/">Our Recepies</nuxt-link>
+        <nuxt-link class="menu-item" to="/recepies">Recepies</nuxt-link>
+        <nuxt-link class="menu-item" to="/recepies/search">Search</nuxt-link>
+        <div v-if="!$auth.loggedIn">
+          <nuxt-link class="menu-item" to="/user/register">Register</nuxt-link>
+
+          <div class="nav-item">
+            <nuxt-link class="menu-item" to="/user/login">Login</nuxt-link>
+          </div>
+        </div>
+        <div v-if="$auth.loggedIn">
+          <nuxt-link class="menu-item" to="/user/my-account"
+            >My Account</nuxt-link
+          >
+          <div class="nav-item">
+            <nuxt-link class="menu-item" to="/user/logout">Logout</nuxt-link>
+          </div>
+        </div>
+      </div>
+      <!-- <button v-if="showHamburgerIcon" id="x-icon" @click="myFunction()">
+        <font-awesome-icon :icon="['fas', 'xmark']" />
+      </button> -->
+      <button id="hamburger-icon" @click="myFunction()">
+        <font-awesome-icon :icon="['fas', 'bars']" />
+      </button>
+    </nav>
+    <!-- <nav>
       <div id="navbarsExampleDefault">
         <ul id="menu-left">
           <li>
@@ -46,13 +74,54 @@
           <font-awesome-icon :icon="['fas', 'bars']" />
         </button>
       </div>
-    </nav>
+    </nav> -->
 
     <main>
       <nuxt />
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      showHamburgerIcon: true,
+    };
+  },
+  mounted: function () {
+    this.showHamburgerIcon = true;
+    // this.$nextTick(function () {
+    //   this.onResize();
+    // });
+    // window.addEventListener("resize", this.onResize);
+    if (matchMedia("only screen and (min-width: 601px)").matches) {
+      console.log("blä");
+      var x = document.getElementById("menu-links");
+      x.className = "top-nav";
+    }
+  },
+  methods: {
+    // onResize() {
+    //   console.log("Resized");
+    //   if (screen.width > 600) {
+    //     var x = document.getElementById("menu-links");
+    //     x.className = "top-nav";
+    //   }
+    // },
+    myFunction() {
+      console.log(this.showHamburgerIcon);
+      var x = document.getElementById("menu-links");
+      if (x.className === "top-nav") {
+        x.className += " responsive";
+      } else {
+        x.className = "top-nav";
+      }
+      this.showHamburgerIcon = !this.showHamburgerIcon;
+    },
+  },
+};
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
@@ -73,44 +142,116 @@ body {
 }
 
 nav {
-  color: white;
+  position: sticky;
+  width: 100%;
+  top: 0px;
   overflow: hidden;
   background-color: #404040;
 }
 
 nav a {
   float: left;
-  /* display: block; */
-  /* text-align: center; */
+  display: block;
+  text-align: center;
   padding: 14px 16px;
   color: whitesmoke;
   text-decoration: none;
   font-size: 17px;
 }
 
-nav a:hover {
-  color: salmon;
+/* .responsive {
+    padding-bottom: 10px;
+} */
+
+/* .responsive .menu-item {
+  line-height: 0.4em;
+} */
+
+#x-icon,
+#hamburger-icon {
+  float: right;
+  margin-right: 10px;
+  margin-top: 22px;
+  color: rgb(64, 64, 64);
 }
 
-nav a.active {
-  color: orangered;
+#hamburger-icon:hover {
+  cursor: pointer;
 }
 
 main {
-    margin: 10px;
+  padding: 10px;
+  color: #404040;
+  line-height: 1.9em;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+textarea {
+  max-width: 95%;
 }
 
 ul {
   list-style-type: none;
 }
 
+.top-nav {
+  overflow: hidden;
+}
+
+.menu-item {
+  margin-top: 8px;
+}
+
+.menu-item:hover {
+  text-decoration: underline;
+}
+
+.ingredients-and-instructions {
+  white-space: pre-line;
+}
+
+a {
+  text-decoration: none;
+  color: #404040;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 600px) {
   .menu-item {
     display: none;
   }
-  nav a.icon {
+  /* .topnav #hamburger-menu {
     float: right;
     display: block;
+  } */
+  .top-nav a:not(:first-child) {
+    display: none;
+  }
+  .top-nav.responsive {
+    position: relative;
+  }
+  #x-icon,
+  #hamburger-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .top-nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  #hamburger-icon,
+  #x-icon {
+    display: none;
   }
 }
 </style>
