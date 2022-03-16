@@ -2,6 +2,7 @@
   <div>
     <div v-if="recepies.length">
       <h1>Recepies by {{ recepies[0].full_name }}</h1>
+      <hr>
       <div v-for="recepie in recepies" :key="recepie._id">
         <nuxt-link :to="'/recepies/' + recepie._id">
           {{ recepie.title }}</nuxt-link

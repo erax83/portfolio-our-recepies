@@ -3,11 +3,9 @@
     <div>
       <h1>Search</h1>
     </div>
-    <hr />
-
     <form action="" method="post" @submit.prevent="test()">
       <div class="form-group">
-        <label for="">Title</label>
+        <label for=""> <b>Title: </b></label>
         <input
           type="text"
           class="form-control"
@@ -19,15 +17,14 @@
         </div>
       </div>
 
-      <input type="submit" value="Submit" />
-      <nuxt-link to="/recepies">Back to Recepies</nuxt-link>
+      <input class="button" type="submit" value="Submit" />
+      <!-- <nuxt-link to="/recepies">Back to Recepies</nuxt-link> -->
     </form>
 
     <hr />
     <div>
-      <h1>Found Recepies</h1>
+      <h3>Results</h3>
     </div>
-    <hr />
 
     <div class="alert alert-success" v-if="$route.params.created == 'yes'">
       Record added successfully
@@ -44,7 +41,7 @@
       </div>
     </div>
 
-    <div v-else>No records found.</div>
+    <!-- <div v-else>No records found.</div> -->
   </div>
 </template>
 

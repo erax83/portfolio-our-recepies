@@ -52,8 +52,8 @@
                 every instruction, like this:
               </i>
             </p>
-            <p>1. Pour milk and honey in a bowl</p>
-            <p>2. Add spices</p>
+            <p>1. Put milk and honey in a bowl.</p>
+            <p>2. Add spices.</p>
             <textarea
               cols="45"
               rows="10"
@@ -67,8 +67,8 @@
             </div>
           </div>
           <br>
-          <input type="submit" value="Submit" />
-          <nuxt-link to="/recepies">Cancel</nuxt-link>
+          <input class="button" type="submit" value="Submit" />
+          <nuxt-link to="/recepies"><button class="button">Cancel</button></nuxt-link>
         </form>
       </div>
     </div>

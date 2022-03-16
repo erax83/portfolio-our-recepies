@@ -45,8 +45,8 @@
             </div>
           </div>
 
-          <input type="submit" value="Register" />
-          <nuxt-link to="/">Cancel</nuxt-link>
+          <input class="button" type="submit" value="Register" />
+          <nuxt-link to="/"><button class="button">Cancel</button></nuxt-link>
         </form>
       </div>
     </div>

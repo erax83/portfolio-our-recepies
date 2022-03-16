@@ -40,8 +40,8 @@
             {{ login_error }}
           </div>
 
-          <input type="submit" value="Login" />
-          <nuxt-link to="/">Cancel</nuxt-link>
+          <input class="button" type="submit" value="Login" />
+          <nuxt-link to="/"><button class="button">Cancel</button></nuxt-link>
         </form>
       </div>
     </div>

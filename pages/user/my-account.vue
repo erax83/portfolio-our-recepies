@@ -4,19 +4,21 @@
 
     <div class="card">
       <div class="card-body">
-        <!-- <h4>{{ this.$auth.user.full_name }}</h4> -->
         <div><strong>Email:</strong> {{ this.$auth.user.email }}</div>
-        <nuxt-link to="/user/logout">Logout</nuxt-link>
+        <nuxt-link to="/user/logout"
+          ><button class="button">Logout</button></nuxt-link
+        >
       </div>
     </div>
 
     <hr />
-    <div>
-      <h1>My Recepies</h1>
-      <nuxt-link to="/recepies/add">Add New</nuxt-link>
-    </div>
-    <hr />
 
+    <h3>My Recepies</h3>
+    <nuxt-link to="/recepies/add"
+      ><button class="button">Add New</button></nuxt-link
+    >
+
+    <br />
     <div v-if="$route.params.created == 'yes'">Record added successfully</div>
     <div v-if="$route.params.deleted == 'yes'">Record deleted successfully</div>
 
@@ -36,7 +38,6 @@
 export default {
   middleware: "auth",
   async asyncData(context) {
-    console.log("Testinggg: " + context.app.$auth.user._id);
     const { data } = await context.$axios.get(
       "/api/userRecepies/" + context.app.$auth.user._id
     );

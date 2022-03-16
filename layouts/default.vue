@@ -212,6 +212,18 @@ ul {
   white-space: pre-line;
 }
 
+.button {
+  border: none;
+  padding: 6px 14px;
+  color: whitesmoke;
+  background: grey;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: #404040;

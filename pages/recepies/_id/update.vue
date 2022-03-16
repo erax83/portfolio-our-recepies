@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Update Article</h1>
+    <h1>Update Recepie</h1>
     <hr />
 
     <div class="row">
@@ -51,8 +51,8 @@
             </div>
           </div>
 
-          <input type="submit" value="Submit" />
-          <nuxt-link :to="'/recepies/' + $route.params.id">Cancel</nuxt-link>
+          <input class="button" type="submit" value="Submit" />
+          <nuxt-link :to="'/recepies/' + $route.params.id"><button class="button">Cancel</button></nuxt-link>
         </form>
       </div>
     </div>

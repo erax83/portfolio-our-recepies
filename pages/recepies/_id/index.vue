@@ -13,9 +13,8 @@
     <p class="ingredients-and-instructions">{{ recepie.ingredients }}</p>
     <h3>Instructions</h3>
     <p class="ingredients-and-instructions">{{ recepie.instructions }}</p>
-    <br />
     <p>
-      Author:
+      <i>Author:</i>
       <nuxt-link :to="'/user/' + recepie.author_id" :key="recepie._id">
         {{ recepie.full_name }}
       </nuxt-link>
@@ -24,26 +23,24 @@
     <hr />
     <div>
       <div>
-        <nuxt-link
-          v-if="$auth.loggedIn && $auth.user._id == recepie.author_id"
-          :to="'/recepies/' + recepie._id + '/update'"
-          >Update</nuxt-link
-        >
-        <button
-          v-if="$auth.loggedIn && $auth.user._id == recepie.author_id"
-          @click="deleteRecord()"
-        >
-          Delete
-        </button>
+        <div v-if="$auth.loggedIn && $auth.user._id == recepie.author_id">
+          <nuxt-link :to="'/recepies/' + recepie._id + '/update'"
+            ><button class="button">Uppdate</button></nuxt-link
+          >
+          <button class="button" @click="deleteRecord()">Delete</button>
+        </div>
 
         <!-- <button v-if="$auth.loggedIn" @click="addToFavourites()">
           Add to favourites
         </button> -->
+        <font-awesome-icon :icon="['fas', 'angle-right']" />
         <nuxt-link v-if="$auth.loggedIn" to="/user/my-account"
-          >Back to My Recepies</nuxt-link
+          >My Recepies</nuxt-link
         >
+        <br />
+        <font-awesome-icon :icon="['fas', 'angle-right']" />
+        <nuxt-link to="/recepies">Recepies</nuxt-link>
       </div>
-      <nuxt-link to="/recepies">Back to Recepies</nuxt-link>
     </div>
   </div>
 </template>
