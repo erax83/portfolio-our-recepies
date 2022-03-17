@@ -1,17 +1,12 @@
 <template>
   <div>
-    <!-- <h1>Recepie</h1>
-
-    <hr /> -->
-
     <div v-if="$route.params.updated == 'yes'">Record updated successfully</div>
 
     <h2>{{ recepie.title }}</h2>
-    <!-- <h3>{{ capitalize_Words(recepie.title) }}</h3> -->
     <hr />
-    <h3>Ingredients</h3>
+    <h4>Ingredients</h4>
     <p class="ingredients-and-instructions">{{ recepie.ingredients }}</p>
-    <h3>Instructions</h3>
+    <h4>Instructions</h4>
     <p class="ingredients-and-instructions">{{ recepie.instructions }}</p>
     <p>
       <i>Author:</i>
@@ -19,15 +14,15 @@
         {{ recepie.full_name }}
       </nuxt-link>
     </p>
-
     <hr />
+
     <div>
       <div>
         <div v-if="$auth.loggedIn && $auth.user._id == recepie.author_id">
           <nuxt-link :to="'/recepies/' + recepie._id + '/update'"
-            ><button class="button">Uppdate</button></nuxt-link
+            ><button class="button update">Uppdate</button></nuxt-link
           >
-          <button class="button" @click="deleteRecord()">Delete</button>
+          <button class="button delete" @click="deleteRecord()">Delete</button>
         </div>
 
         <!-- <button v-if="$auth.loggedIn" @click="addToFavourites()">

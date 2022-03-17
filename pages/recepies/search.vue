@@ -5,7 +5,7 @@
     </div>
     <form action="" method="post" @submit.prevent="test()">
       <div class="form-group">
-        <label for=""> <b>Title: </b></label>
+        <label for="">Title</label>
         <input
           type="text"
           class="form-control"
@@ -17,8 +17,7 @@
         </div>
       </div>
 
-      <input class="button" type="submit" value="Submit" />
-      <!-- <nuxt-link to="/recepies">Back to Recepies</nuxt-link> -->
+      <input class="button" type="submit" value="Search" />
     </form>
 
     <hr />
@@ -26,22 +25,16 @@
       <h3>Results</h3>
     </div>
 
-    <div class="alert alert-success" v-if="$route.params.created == 'yes'">
-      Record added successfully
-    </div>
-    <div class="alert alert-success" v-if="$route.params.deleted == 'yes'">
-      Record deleted successfully
-    </div>
-
     <div class="list-group" v-if="recepies.length">
       <div v-for="recepie in this.recepies" :key="recepie._id">
+        <font-awesome-icon :icon="['fas', 'angle-right']" />
         <nuxt-link :to="'/recepies/' + recepie._id">
           {{ recepie.title }}</nuxt-link
         >
       </div>
     </div>
 
-    <!-- <div v-else>No records found.</div> -->
+    <div v-else>No records found.</div>
   </div>
 </template>
 

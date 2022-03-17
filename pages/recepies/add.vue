@@ -2,12 +2,11 @@
   <div>
     <h1>Add New Recepie</h1>
     <hr />
-
     <div class="row">
       <div>
         <form action="" method="post" @submit.prevent="submitForm()">
           <div class="form-group">
-            <label for=""><h4>Title</h4></label>
+            <label for=""><b>Title</b></label>
             <input
               type="text"
               class="form-control"
@@ -20,18 +19,12 @@
           </div>
           <br />
           <div class="form-group">
-            <label for=""> <h4>Ingredients</h4> </label>
+            <label for=""><b>Ingredients</b></label>
             <p>
               <i> Use one ingredient and amount for every row, like this: </i>
             </p>
             <p>1 egg</p>
             <p>2 dl sugar</p>
-            <!-- <input
-              type="text"
-              class="form-control"
-              :class="{ 'is-invalid': errors && errors.ingredients }"
-              v-model="ingredients"
-            /> -->
             <textarea
               cols="45"
               rows="10"
@@ -43,13 +36,13 @@
               {{ errors.ingredients.msg }}
             </div>
           </div>
-          <br>
+          <br />
           <div class="form-group">
-            <label for=""> <h4>Instructions</h4> </label>
+            <label for=""> <b>Instructions</b> </label>
             <p>
               <i>
-                Use a number before every instruction. And start a new line after
-                every instruction, like this:
+                Use a number before every instruction. And start a new line
+                after every instruction, like this:
               </i>
             </p>
             <p>1. Put milk and honey in a bowl.</p>
@@ -66,9 +59,11 @@
               {{ errors.instructions.msg }}
             </div>
           </div>
-          <br>
-          <input class="button" type="submit" value="Submit" />
-          <nuxt-link to="/recepies"><button class="button">Cancel</button></nuxt-link>
+          <br />
+          <input class="button add" type="submit" value="Submit" />
+          <nuxt-link to="/recepies"
+            ><button class="button delete">Cancel</button></nuxt-link
+          >
         </form>
       </div>
     </div>

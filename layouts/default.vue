@@ -24,57 +24,10 @@
       <!-- <button v-if="showHamburgerIcon" id="x-icon" @click="myFunction()">
         <font-awesome-icon :icon="['fas', 'xmark']" />
       </button> -->
-      <button id="hamburger-icon" @click="myFunction()">
+      <button id="hamburger-icon" @click="mobileNav()">
         <font-awesome-icon :icon="['fas', 'bars']" />
       </button>
     </nav>
-    <!-- <nav>
-      <div id="navbarsExampleDefault">
-        <ul id="menu-left">
-          <li>
-            <nuxt-link id="logo" to="/">Our Recepies</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link class="menu-item" to="/recepies">Recepies</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link class="menu-item" to="/recepies/search"
-              >Search</nuxt-link
-            >
-          </li>
-        </ul>
-
-        <ul id="menu-right" v-if="!$auth.loggedIn">
-          <li>
-            <nuxt-link class="menu-item" to="/user/register"
-              >Register</nuxt-link
-            >
-          </li>
-          <li class="nav-item">
-            <nuxt-link class="menu-item" to="/user/login">Login</nuxt-link>
-          </li>
-        </ul>
-
-        <ul v-if="$auth.loggedIn">
-          <li>
-            <nuxt-link class="menu-item" to="/user/my-account"
-              >My Account</nuxt-link
-            >
-          </li>
-          <li class="nav-item">
-            <nuxt-link class="menu-item" to="/user/logout">Logout</nuxt-link>
-          </li>
-          <li>
-            <button class="icon" onclick="myFunction()">
-              <font-awesome-icon :icon="['fas', 'bars']" />
-            </button>
-          </li>
-        </ul>
-        <button class="icon" onclick="myFunction()">
-          <font-awesome-icon :icon="['fas', 'bars']" />
-        </button>
-      </div>
-    </nav> -->
 
     <main>
       <nuxt />
@@ -109,8 +62,7 @@ export default {
     //     x.className = "top-nav";
     //   }
     // },
-    myFunction() {
-      console.log(this.showHamburgerIcon);
+    mobileNav() {
       var x = document.getElementById("menu-links");
       if (x.className === "top-nav") {
         x.className += " responsive";
@@ -124,10 +76,6 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap");
 
 body {
@@ -135,10 +83,31 @@ body {
   margin: 0;
 }
 
+h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  margin-bottom: 0em;
+}
+
+form textarea {
+  margin-top: 0.8em;
+  margin-bottom: 1.2em;
+}
+
+form input {
+  margin-left: 5px;
+}
+
+form p {
+  line-height: 1em;
+}
+
 #logo {
   font-family: "Lily Script One";
   font-size: 25px;
-  /* color: salmon; */
 }
 
 nav {
@@ -183,7 +152,6 @@ main {
   padding: 10px;
   color: #404040;
   line-height: 1.9em;
-  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -210,6 +178,7 @@ ul {
 
 .ingredients-and-instructions {
   white-space: pre-line;
+  margin-top: 0em;
 }
 
 .button {
@@ -217,6 +186,19 @@ ul {
   padding: 6px 14px;
   color: whitesmoke;
   background: grey;
+  margin: 5px;
+}
+
+.add {
+  background: seagreen;
+}
+
+.delete {
+  background: rgb(206, 79, 33);
+}
+
+.update {
+  background: rgb(223, 145, 1);
 }
 
 .button:hover {
@@ -226,33 +208,43 @@ ul {
 
 a {
   text-decoration: none;
-  color: #404040;
+  color: dodgerblue;
 }
 
 a:hover {
   text-decoration: underline;
+  /* color: deepskyblue; */
+}
+
+form {
+  line-height: 1.2em;
+}
+
+.form-group {
+  line-height: 1.2;
+  margin: 10px;
 }
 
 @media screen and (max-width: 600px) {
   .menu-item {
     display: none;
   }
-  /* .topnav #hamburger-menu {
-    float: right;
-    display: block;
-  } */
+
   .top-nav a:not(:first-child) {
     display: none;
   }
+
   .top-nav.responsive {
     position: relative;
   }
+
   #x-icon,
   #hamburger-icon {
     position: absolute;
     right: 0;
     top: 0;
   }
+
   .top-nav.responsive a {
     float: none;
     display: block;
@@ -264,6 +256,16 @@ a:hover {
   #hamburger-icon,
   #x-icon {
     display: none;
+  }
+
+  main {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  main {
+    max-width: 1000px;
   }
 }
 </style>

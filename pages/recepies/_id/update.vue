@@ -7,8 +7,7 @@
       <div>
         <form action="" method="post" @submit.prevent="submitForm()">
           <div class="form-group">
-            <label for="">Title</label>
-            <br>
+            <label for=""> <b>Title</b> </label>
             <input
               type="text"
               class="form-control"
@@ -22,8 +21,8 @@
           </div>
           <br />
           <div class="form-group">
-            <label for="">Ingredients</label>
-            <br>
+            <label for=""><b>Ingredients</b> </label>
+            <br />
             <textarea
               cols="45"
               rows="10"
@@ -37,8 +36,8 @@
           </div>
 
           <div class="form-group">
-            <label for="">Instructions</label>
-            <br>
+            <label for=""> <b>Instructions</b> </label>
+            <br />
             <textarea
               cols="45"
               rows="10"
@@ -51,8 +50,10 @@
             </div>
           </div>
 
-          <input class="button" type="submit" value="Submit" />
-          <nuxt-link :to="'/recepies/' + $route.params.id"><button class="button">Cancel</button></nuxt-link>
+          <input class="button add" type="submit" value="Submit" />
+          <nuxt-link :to="'/recepies/' + $route.params.id"
+            ><button class="button delete">Cancel</button></nuxt-link
+          >
         </form>
       </div>
     </div>
