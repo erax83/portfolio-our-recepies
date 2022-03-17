@@ -3,31 +3,31 @@ const { Router } = require("express");
 
 const router = Router();
 
-// Initialize Controller
+// Initialize controller.
 const recepiesController = require("../controllers/recepiesController");
 
-// Get All
+// Get all recepies.
 router.get("/recepies", recepiesController.list);
 
-// Get One
+// Get one recepies
 router.get("/recepies/:id", recepiesController.show);
 
-// Get All from logged in user
+// Get all recepies from logged in user.
 router.get("/userRecepies/:id", recepiesController.showUserRecepies);
 
-// Get All from another user
+// Get all recepies from a user.
 router.get("/anotherUserRecepies/:id", recepiesController.showAnotherUserRecepies);
 
-// Get all by search
+// Get all by search.
 router.get("/searchRecepies/:id", recepiesController.showSearchRecepies);
 
-// Create
+// Create recepie.
 router.post("/recepies", config.isAuthenticated, recepiesController.create);
 
-// Update
+// Update recepie.
 router.put("/recepies/:id", config.isAuthenticated, recepiesController.update);
 
-// Delete
+// Delete recepie.
 router.delete(
   "/recepies/:id",
   config.isAuthenticated,

@@ -3,7 +3,6 @@ const { Router } = require("express");
 
 const router = Router();
 
-// Initialize Controller
 const favouritesController = require("../controllers/favouritesController");
 
 // Create

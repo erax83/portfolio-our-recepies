@@ -1,3 +1,5 @@
+// Setting up authentication with JSON webtoken.
+
 const jwt = require("jsonwebtoken");
 
 const config = {

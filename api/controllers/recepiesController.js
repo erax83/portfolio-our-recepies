@@ -1,7 +1,7 @@
 const Recepie = require("../models/Recepie");
 const validator = require("express-validator");
 
-// Get all
+// Get all recepies.
 module.exports.list = function (req, res, next) {
   Recepie.find({}, function (err, recepies) {
     if (err) {
@@ -15,7 +15,7 @@ module.exports.list = function (req, res, next) {
     .limit(5);
 };
 
-// Get one
+// Get one recepie.
 module.exports.show = function (req, res) {
   var id = req.params.id;
   Recepie.findOne({ _id: id }, function (err, recepie) {
@@ -31,7 +31,7 @@ module.exports.show = function (req, res) {
   });
 };
 
-// Get all from logged in user
+// Get all recepies from logged in user.
 module.exports.showUserRecepies = function (req, res, next) {
   Recepie.find(
     {
@@ -53,7 +53,7 @@ module.exports.showUserRecepies = function (req, res, next) {
   );
 };
 
-// Get all from another user
+// Get all recepies from another user.
 module.exports.showAnotherUserRecepies = function (req, res, next) {
   Recepie.find(
     {
@@ -75,7 +75,7 @@ module.exports.showAnotherUserRecepies = function (req, res, next) {
   );
 };
 
-// Get all recepies based on search
+// Get all recepies based on search.
 module.exports.showSearchRecepies = function (req, res, next) {
   Recepie.find(
     { title: { $regex: req.params.id, $options: "i" } },
@@ -95,7 +95,7 @@ module.exports.showSearchRecepies = function (req, res, next) {
   );
 };
 
-// Create
+// Create new recepie.
 module.exports.create = [
   // validations rules
   validator.body("title", "Please enter Recepie Title").isLength({ min: 1 }),
@@ -146,9 +146,9 @@ module.exports.create = [
   },
 ];
 
-// Update
+// Update recepie.
 module.exports.update = [
-  // validation rules
+  // Validation rules
   validator.body("title", "Please enter Recepie Title").isLength({ min: 1 }),
   validator.body("title").custom((value, { req }) => {
     return Recepie.findOne({ title: value, _id: { $ne: req.params.id } }).then(
@@ -167,7 +167,6 @@ module.exports.update = [
     .isLength({ min: 1 }),
 
   function (req, res) {
-    // throw validation errors
     const errors = validator.validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.mapped() });
@@ -187,7 +186,6 @@ module.exports.update = [
         });
       }
 
-      // initialize record
       recepie.title = req.body.title ? req.body.title : recepie.title;
       recepie.ingredients = req.body.ingredients
         ? req.body.ingredients
@@ -196,7 +194,6 @@ module.exports.update = [
         ? req.body.instructions
         : recepie.instructions;
 
-      // save record
       recepie.save(function (err, recepie) {
         if (err) {
           return res.status(500).json({
@@ -214,7 +211,7 @@ module.exports.update = [
   },
 ];
 
-// Delete
+// Delete recepie.
 module.exports.delete = function (req, res) {
   var id = req.params.id;
   Recepie.findByIdAndRemove(id, function (err, recepie) {

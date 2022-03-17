@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Recepie model.
 const Recepie = new Schema({
   title: { type: String, required: true, index: { unique: true } },
   ingredients: { type: String, required: true },

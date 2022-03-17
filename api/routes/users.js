@@ -3,16 +3,16 @@ const { Router } = require("express");
 
 const router = Router();
 
-// Initialize Controller
+// Initialize controller.
 const usersController = require("../controllers/usersController");
 
-// Register
+// Register user.
 router.post("/users/register", usersController.register);
 
-// Login
+// Login user.
 router.post("/users/login", usersController.login);
 
-// Get User
+// Get user.
 router.get("/users/user", usersController.user);
 
 module.exports = router;

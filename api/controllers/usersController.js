@@ -4,9 +4,9 @@ const validator = require("express-validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-// Register
+//  Register new user.
 module.exports.register = [
-  // validations rules
+  // Validations rules.
   validator.body("full_name", "Please enter Full Name").isLength({ min: 1 }),
   validator.body("email", "Please enter Email").isLength({ min: 1 }),
   validator.body("email").custom((value) => {
@@ -49,7 +49,7 @@ module.exports.register = [
   },
 ];
 
-// Login
+// Login user.
 module.exports.login = [
   validator.body("email", "Please enter Email").isLength({ min: 1 }),
   validator.body("password", "Please enter Password").isLength({ min: 1 }),
@@ -101,7 +101,7 @@ module.exports.login = [
   },
 ];
 
-// Get User
+// Get user.
 module.exports.user = function (req, res) {
   var token = req.headers.authorization;
   if (token) {
