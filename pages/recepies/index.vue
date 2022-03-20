@@ -1,3 +1,4 @@
+<!-- Page showing the latest added recepies.-->
 <template>
   <div>
     <div>
@@ -27,6 +28,7 @@
 
 <script>
 export default {
+  // Fetch the five last recepies.
   async asyncData(context) {
     const { data } = await context.$axios.get("/api/recepies");
     return {

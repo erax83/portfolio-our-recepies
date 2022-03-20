@@ -1,3 +1,4 @@
+<!-- Opening page with info. -->
 <template>
   <div>
     <h1>Welcome to Our Recepies!</h1>

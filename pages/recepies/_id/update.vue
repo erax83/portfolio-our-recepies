@@ -1,3 +1,4 @@
+<!-- Page for updating recepie -->
 <template>
   <div>
     <h1>Update Recepie</h1>
@@ -63,6 +64,7 @@
 <script>
 export default {
   middleware: "auth",
+  // Fetching recepie data from database.
   async asyncData(context) {
     const { data } = await context.$axios.get(
       "/api/recepies/" + context.route.params.id
@@ -83,11 +85,13 @@ export default {
     this.fillFormData();
   },
   methods: {
+    // Data from fetched recepie stored in recepie.
     fillFormData() {
       this.title = this.recepie.title;
       this.ingredients = this.recepie.ingredients;
       this.instructions = this.recepie.instructions;
     },
+    // Update recepie with new data.
     submitForm() {
       this.$axios
         .put("/api/recepies/" + this.$route.params.id, {

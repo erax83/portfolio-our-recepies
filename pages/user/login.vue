@@ -1,3 +1,4 @@
+<!-- Page for user login. -->
 <template>
   <div>
     <h1>Login</h1>
@@ -62,6 +63,7 @@ export default {
     };
   },
   methods: {
+    // Login with auth.
     submitForm() {
       this.$auth
         .loginWith("local", {

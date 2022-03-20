@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Navigation menu -->
     <nav>
       <div class="top-nav" id="menu-links">
         <nuxt-link id="logo" to="/">Our Recepies</nuxt-link>
@@ -7,7 +8,6 @@
         <nuxt-link class="menu-item" to="/recepies/search">Search</nuxt-link>
         <div v-if="!$auth.loggedIn">
           <nuxt-link class="menu-item" to="/user/register">Register</nuxt-link>
-
           <div class="nav-item">
             <nuxt-link class="menu-item" to="/user/login">Login</nuxt-link>
           </div>
@@ -29,6 +29,7 @@
       </button>
     </nav>
 
+    <!-- Pages -->
     <main>
       <nuxt />
     </main>
@@ -48,11 +49,11 @@ export default {
     //   this.onResize();
     // });
     // window.addEventListener("resize", this.onResize);
-    if (matchMedia("only screen and (min-width: 601px)").matches) {
-      console.log("blä");
-      var x = document.getElementById("menu-links");
-      x.className = "top-nav";
-    }
+
+    // if (matchMedia("only screen and (min-width: 601px)").matches) {
+    //   var x = document.getElementById("menu-links");
+    //   x.className = "top-nav";
+    // }
   },
   methods: {
     // onResize() {
@@ -62,6 +63,8 @@ export default {
     //     x.className = "top-nav";
     //   }
     // },
+
+    // Show menu in mobile mode.
     mobileNav() {
       var x = document.getElementById("menu-links");
       if (x.className === "top-nav") {
@@ -105,11 +108,6 @@ form p {
   line-height: 1em;
 }
 
-#logo {
-  font-family: "Lily Script One";
-  font-size: 25px;
-}
-
 nav {
   position: sticky;
   width: 100%;
@@ -126,6 +124,11 @@ nav a {
   color: whitesmoke;
   text-decoration: none;
   font-size: 17px;
+}
+
+#logo {
+  font-family: "Lily Script One";
+  font-size: 25px;
 }
 
 /* .responsive {
@@ -213,7 +216,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-  /* color: deepskyblue; */
 }
 
 form {
@@ -225,6 +227,7 @@ form {
   margin: 10px;
 }
 
+/* Responsive design */
 @media screen and (max-width: 600px) {
   .menu-item {
     display: none;

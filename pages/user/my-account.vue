@@ -1,3 +1,4 @@
+<!-- Use account page with users own recepies.  --> 
 <template>
   <div>
     <h1>{{ this.$auth.user.full_name }}</h1>
@@ -34,6 +35,7 @@
 <script>
 export default {
   middleware: "auth",
+  // Fetching users own recepies.
   async asyncData(context) {
     const { data } = await context.$axios.get(
       "/api/userRecepies/" + context.app.$auth.user._id

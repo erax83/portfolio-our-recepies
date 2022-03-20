@@ -1,3 +1,4 @@
+<!-- Page for registering new user. -->
 <template>
   <div>
     <h1>Register</h1>
@@ -67,6 +68,7 @@ export default {
     };
   },
   methods: {
+    // Submit data for new user and then logging in.
     submitForm() {
       this.$axios
         .post("/api/users/register", {
@@ -81,7 +83,7 @@ export default {
               name: "user-login",
               params: { registered: "yes" },
             });
-            // log in if successfully registered
+            // Log in if successfully registered.
             this.$auth
               .loginWith("local", {
                 data: {

@@ -1,3 +1,4 @@
+<!-- Page showing recepies from one author. -->
 <template>
   <div>
     <div v-if="recepies.length">
@@ -18,6 +19,7 @@
 <script>
 export default {
   middleware: "auth",
+  // Fetching recepies from one author.
   async asyncData(context) {
     const { data } = await context.$axios.get(
       "/api/anotherUserRecepies/" + context.route.params.id

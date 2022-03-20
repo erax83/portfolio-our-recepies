@@ -1,9 +1,10 @@
+<!-- Page for searching for recepies by recepietitle. -->
 <template>
   <div>
     <div>
       <h1>Search</h1>
     </div>
-    <form action="" method="post" @submit.prevent="test()">
+    <form action="" method="post" @submit.prevent="search()">
       <div class="form-group">
         <label for="">Title</label>
         <input
@@ -47,7 +48,8 @@ export default {
     };
   },
   methods: {
-    async test() {
+    // Searching in database for recepies based on input from user.
+    async search() {
       const data = await this.$axios.$get(
         "/api/searchRecepies/" + this.searchWord
       );

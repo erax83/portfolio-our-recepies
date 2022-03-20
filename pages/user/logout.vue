@@ -1,4 +1,4 @@
-
+<!-- Page showing while logging out in case of slow speed. -->
 <template>
   <div>
     <h1>Logging out</h1>

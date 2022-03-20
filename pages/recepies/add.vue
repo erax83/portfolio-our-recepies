@@ -1,3 +1,4 @@
+<!-- Page for adding new recepie. -->
 <template>
   <div>
     <h1>Add New Recepie</h1>
@@ -82,6 +83,7 @@ export default {
     };
   },
   methods: {
+    // Submit form to post new recepie.
     submitForm() {
       this.$axios
         .post("/api/recepies", {

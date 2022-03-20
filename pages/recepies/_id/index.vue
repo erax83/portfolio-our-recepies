@@ -1,3 +1,4 @@
+<!-- Page showing one recepie. -->
 <template>
   <div>
     <div v-if="$route.params.updated == 'yes'">Record updated successfully</div>
@@ -22,7 +23,7 @@
           <nuxt-link :to="'/recepies/' + recepie._id + '/update'"
             ><button class="button update">Uppdate</button></nuxt-link
           >
-          <button class="button delete" @click="deleteRecord()">Delete</button>
+          <button class="button delete" @click="deleteRecepie()">Delete</button>
         </div>
 
         <!-- <button v-if="$auth.loggedIn" @click="addToFavourites()">
@@ -52,7 +53,8 @@ export default {
     };
   },
   methods: {
-    deleteRecord() {
+    // Delete recepie.
+    deleteRecepie() {
       if (confirm("Are you sure?") === true) {
         this.$axios
           .delete("/api/recepies/" + this.$route.params.id)
