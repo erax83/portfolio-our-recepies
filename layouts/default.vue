@@ -79,7 +79,20 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap");
+/* @font-face {
+  font-family: "Lily Script One";
+  src: url("https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap"); 
+  src: url("webfont.eot?#iefix") format("embedded-opentype"),
+    url("webfont.woff2") format("woff2"), url("webfont.woff") format("woff"),
+    url("webfont.ttf") format("truetype"),
+    url("webfont.svg#svgFontName") format("svg"); 
+} */
+
+@font-face {
+  font-family: "Lily Script One";
+  src: url("~assets/fonts/LilyScriptOne-Regular.ttf");
+}
+/* @import url("https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap"); */
 
 body {
   font-family: Helvetica;
