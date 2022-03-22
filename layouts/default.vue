@@ -88,10 +88,10 @@ export default {
     url("webfont.svg#svgFontName") format("svg"); 
 } */
 
-@font-face {
+/* @font-face {
   font-family: "Lily Script One";
   src: url("~assets/fonts/LilyScriptOne-Regular.ttf");
-}
+} */
 /* @import url("https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap"); */
 
 body {

@@ -53,7 +53,6 @@ export default {
       const data = await this.$axios.$get(
         "/api/searchRecepies/" + this.searchWord
       );
-      await console.log(data);
       this.recepies = data;
     },
   },
