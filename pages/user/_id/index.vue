@@ -2,7 +2,7 @@
 <template>
   <div>
     <div v-if="recepies.length">
-      <h1>Recepies by {{ recepies[0].full_name }}</h1>
+      <h1>Recipes by {{ recepies[0].full_name }}</h1>
       <hr>
       <div v-for="recepie in recepies" :key="recepie._id">
         <font-awesome-icon :icon="['fas', 'angle-right']" />

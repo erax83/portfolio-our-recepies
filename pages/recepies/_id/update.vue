@@ -1,7 +1,7 @@
 <!-- Page for updating recepie -->
 <template>
   <div>
-    <h1>Update Recepie</h1>
+    <h1>Update Recipe</h1>
     <hr />
 
     <div class="row">

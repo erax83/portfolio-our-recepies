@@ -14,7 +14,7 @@
 
     <hr />
 
-    <h3>My Recepies</h3>
+    <h3>My Recipes</h3>
     <nuxt-link to="/recepies/add"
       ><button class="button add">Add New</button></nuxt-link
     >

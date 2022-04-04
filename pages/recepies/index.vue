@@ -2,7 +2,7 @@
 <template>
   <div>
     <div>
-      <h1>Recepies</h1>
+      <h1>Recipes</h1>
       <nuxt-link to="/recepies/add"
         ><button class="button add">Add New</button></nuxt-link
       >
@@ -12,7 +12,7 @@
     <div v-if="$route.params.created == 'yes'">Record added successfully</div>
     <div v-if="$route.params.deleted == 'yes'">Record deleted successfully</div>
 
-    <h3>Last added recepies</h3>
+    <h3>Most recently added recipes</h3>
     <div class="list-group" v-if="recepies.length">
       <div v-for="recepie in recepies" :key="recepie._id">
         <font-awesome-icon :icon="['fas', 'angle-right']" />

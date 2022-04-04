@@ -3,8 +3,8 @@
     <!-- Navigation menu -->
     <nav>
       <div class="top-nav" id="menu-links">
-        <nuxt-link id="logo" to="/">Our Recepies</nuxt-link>
-        <nuxt-link class="menu-item" to="/recepies">Recepies</nuxt-link>
+        <nuxt-link id="logo" to="/">Our Recipes</nuxt-link>
+        <nuxt-link class="menu-item" to="/recepies">Recipes</nuxt-link>
         <nuxt-link class="menu-item" to="/recepies/search">Search</nuxt-link>
         <div v-if="!$auth.loggedIn">
           <nuxt-link class="menu-item" to="/user/register">Register</nuxt-link>

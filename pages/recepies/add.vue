@@ -1,7 +1,7 @@
 <!-- Page for adding new recepie. -->
 <template>
   <div>
-    <h1>Add New Recepie</h1>
+    <h1>Add New Recipe</h1>
     <hr />
     <div class="row">
       <div>

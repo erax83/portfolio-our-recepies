@@ -31,11 +31,11 @@
         </button> -->
         <font-awesome-icon :icon="['fas', 'angle-right']" />
         <nuxt-link v-if="$auth.loggedIn" to="/user/my-account"
-          >My Recepies</nuxt-link
+          >My Recipes</nuxt-link
         >
         <br />
         <font-awesome-icon :icon="['fas', 'angle-right']" />
-        <nuxt-link to="/recepies">Recepies</nuxt-link>
+        <nuxt-link to="/recepies">Recipes</nuxt-link>
       </div>
     </div>
   </div>
